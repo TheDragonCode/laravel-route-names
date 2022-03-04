@@ -21,7 +21,9 @@
         "source": "https://github.com/TheDragonCode/laravel-route-names"
     },
     "require": {
-        "php": "^7.4 || ^8.0"
+        "php": "^7.3 || ^8.0",
+        "fig/http-message-util": "^1.1",
+        "illuminate/routing": "^6.0 || ^7.0 || ^8.0 || ^9.0"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
