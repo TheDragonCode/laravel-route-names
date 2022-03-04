@@ -1,2 +1,3 @@
-# laravel-route-names
+# Laravel Route Names
+
 Automatic generation of route names
