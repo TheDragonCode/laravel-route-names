@@ -1,0 +1,50 @@
+{
+    "name": "dragon-code/laravel-route-names",
+    "description": "Automatic generation of route names",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "dragon-code",
+        "routes",
+        "names",
+        "naming",
+        "routing"
+    ],
+    "authors": [
+        {
+            "name": "Andrey Helldar",
+            "email": "helldar@ai-rus.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/TheDragonCode/laravel-route-names/issues",
+        "source": "https://github.com/TheDragonCode/laravel-route-names"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0 || ^6.0 || ^7.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "DragonCode\\LaravelRouteNames\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "ergebnis/composer-normalize": true
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
