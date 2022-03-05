@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Tests\Concerns;
 
 use Illuminate\Routing\Router;
+use Tests\Http\Controllers\ApiResourceController;
 use Tests\Http\Controllers\Controller;
+use Tests\Http\Controllers\WebResourceController;
 
 trait Routes
 {
@@ -24,6 +26,37 @@ trait Routes
         $router->delete('simple/', [Controller::class, 'simpleBaq']);
         $router->patch('simple/', [Controller::class, 'simpleBaw']);
         $router->options('simple/', [Controller::class, 'simpleBae']);
+
+        $router->get('simple/edit/{id}', [Controller::class, 'simpleEditFoo']);
+        $router->post('simple/edit/{id}', [Controller::class, 'simpleEditBar']);
+        $router->put('simple/edit/{id}', [Controller::class, 'simpleEditBaz']);
+        $router->delete('simple/edit/{id}', [Controller::class, 'simpleEditBaq']);
+        $router->patch('simple/edit/{id}', [Controller::class, 'simpleEditBaw']);
+        $router->options('simple/edit/{id}', [Controller::class, 'simpleEditBae']);
+
+        $router->get('simple/update/{id}', [Controller::class, 'simpleUpdateFoo']);
+        $router->post('simple/update/{id}', [Controller::class, 'simpleUpdateBar']);
+        $router->put('simple/update/{id}', [Controller::class, 'simpleUpdateBaz']);
+        $router->delete('simple/update/{id}', [Controller::class, 'simpleUpdateBaq']);
+        $router->patch('simple/update/{id}', [Controller::class, 'simpleUpdateBaw']);
+        $router->options('simple/update/{id}', [Controller::class, 'simpleUpdateBae']);
+
+        $router->get('simple/destroy/{id}', [Controller::class, 'simpleDestroyFoo']);
+        $router->post('simple/destroy/{id}', [Controller::class, 'simpleDestroyBar']);
+        $router->put('simple/destroy/{id}', [Controller::class, 'simpleDestroyBaz']);
+        $router->delete('simple/destroy/{id}', [Controller::class, 'simpleDestroyBaq']);
+        $router->patch('simple/destroy/{id}', [Controller::class, 'simpleDestroyBaw']);
+        $router->options('simple/destroy/{id}', [Controller::class, 'simpleDestroyBae']);
+    }
+
+    protected function collisionRoutes(Router $router): void
+    {
+        $router->get('collision/get/{id}', [Controller::class, 'collisionGet']);
+        $router->post('collision/post/{id}', [Controller::class, 'collisionPost']);
+        $router->put('collision/put/{id}', [Controller::class, 'collisionPut']);
+        $router->delete('collision/delete/{id}', [Controller::class, 'collisionDelete']);
+        $router->patch('collision/patch/{id}', [Controller::class, 'collisionPatch']);
+        $router->options('collision/options/{id}', [Controller::class, 'collisionOptions']);
     }
 
     protected function routesWithParameters(Router $router): void
@@ -62,18 +95,18 @@ trait Routes
 
     protected function mixedCases(Router $router): void
     {
-        $router->get('mIxEd-CaSe/{id}', [Controller::class, 'caseFoo']);
-        $router->post('mIxEd-CaSe/{id}', [Controller::class, 'caseBar']);
-        $router->put('mIxEd-CaSe/{id}', [Controller::class, 'caseBaz']);
-        $router->delete('mIxEd-CaSe/{id}', [Controller::class, 'caseBaq']);
-        $router->patch('mIxEd-CaSe/{id}', [Controller::class, 'caseBaw']);
-        $router->options('mIxEd-CaSe/{id}', [Controller::class, 'caseBae']);
+        $router->get('mIxEd-CaSe/{id}/case', [Controller::class, 'caseFoo']);
+        $router->post('mIxEd-CaSe/{id}/case', [Controller::class, 'caseBar']);
+        $router->put('mIxEd-CaSe/{id}/case', [Controller::class, 'caseBaz']);
+        $router->delete('mIxEd-CaSe/{id}/case', [Controller::class, 'caseBaq']);
+        $router->patch('mIxEd-CaSe/{id}/case', [Controller::class, 'caseBaw']);
+        $router->options('mIxEd-CaSe/{id}/case', [Controller::class, 'caseBae']);
     }
 
     protected function resourceRoutes(Router $router): void
     {
-        $router->resource('resources/photos', Controller::class);
+        $router->resource('resources/photos', WebResourceController::class);
 
-        $router->apiResource('resources/comments', Controller::class);
+        $router->apiResource('resources/comments', ApiResourceController::class);
     }
 }

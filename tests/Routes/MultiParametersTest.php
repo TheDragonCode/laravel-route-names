@@ -17,11 +17,11 @@ class MultiParametersTest extends TestCase
         $this->assertSame('multi.foo.bar.qwerty.patch', $this->getRouteName('multiBaw'));
         $this->assertSame('multi.foo.bar.qwerty.options', $this->getRouteName('multiBae'));
 
-        $this->assertSame('multi.simple.foo.bar.qwerty.index', $this->getRouteName('multiEndWithFo'));
-        $this->assertSame('multi.simple.foo.bar.qwerty.store', $this->getRouteName('multiEndWithBa'));
-        $this->assertSame('multi.simple.foo.bar.qwerty.update', $this->getRouteName('multiEndWithBa'));
-        $this->assertSame('multi.simple.foo.bar.qwerty.destroy', $this->getRouteName('multiEndWithBa'));
-        $this->assertSame('multi.simple.foo.bar.qwerty.patch', $this->getRouteName('multiEndWithBa'));
-        $this->assertSame('multi.simple.foo.bar.qwerty.options', $this->getRouteName('multiEndWithBa'));
+        $this->assertSame('multi.simple.foo.bar.qwerty.index', $this->getRouteName('multiEndWithFoo'));
+        $this->assertSame('multi.simple.foo.bar.qwerty.store', $this->getRouteName('multiEndWithBar'));
+        $this->assertSame('multi.simple.foo.bar.qwerty.update', $this->getRouteName('multiEndWithBaz'));
+        $this->assertSame('multi.simple.foo.bar.qwerty.destroy', $this->getRouteName('multiEndWithBaq'));
+        $this->assertSame('multi.simple.foo.bar.qwerty.patch', $this->getRouteName('multiEndWithBaw'));
+        $this->assertSame('multi.simple.foo.bar.qwerty.options', $this->getRouteName('multiEndWithBae'));
     }
 }

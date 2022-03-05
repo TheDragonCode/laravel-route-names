@@ -1,10 +1,8 @@
 <?php
 
-declare(strict_types=1);
+namespace DragonCode\LaravelRouteNames;
 
-namespace Tests\Foundation;
-
-use DragonCode\LaravelRouteNames\ServiceProvider;
+use DragonCode\LaravelRouteNames\Providers\RoutingServiceProvider;
 use Illuminate\Events\EventServiceProvider;
 use Illuminate\Foundation\Application as BaseApplication;
 use Illuminate\Log\LogServiceProvider;
@@ -15,6 +13,6 @@ class Application extends BaseApplication
     {
         $this->register(new EventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
-        $this->register(new ServiceProvider($this));
+        $this->register(new RoutingServiceProvider($this));
     }
 }

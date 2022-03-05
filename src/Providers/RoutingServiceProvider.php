@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\LaravelRouteNames;
+namespace DragonCode\LaravelRouteNames\Providers;
 
 use DragonCode\LaravelRouteNames\Routing\Router;
-use Illuminate\Routing\RoutingServiceProvider;
+use Illuminate\Routing\RoutingServiceProvider as BaseRoutingServiceProvider;
 
-class ServiceProvider extends RoutingServiceProvider
+class RoutingServiceProvider extends BaseRoutingServiceProvider
 {
     protected function registerRouter(): void
     {

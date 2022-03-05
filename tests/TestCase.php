@@ -16,13 +16,13 @@
 
 namespace Tests;
 
+use DragonCode\LaravelRouteNames\Application;
 use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Support\Facades\Route as RouteFacade;
 use Orchestra\Testbench\Bootstrap\LoadConfiguration as OrchestraLoadConfiguration;
 use Orchestra\Testbench\Foundation\PackageManifest;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Tests\Concerns\Routes;
-use Tests\Foundation\Application;
 use Tests\Http\Controllers\Controller;
 
 abstract class TestCase extends BaseTestCase
@@ -51,21 +51,14 @@ abstract class TestCase extends BaseTestCase
     protected function defineWebRoutes($router)
     {
         $this->basicRoutes($router);
-        $this->routesWithParameters($router);
-        $this->routesWithMultiParameters($router);
+        $this->collisionRoutes($router);
         $this->mixedCases($router);
+        $this->routesWithMultiParameters($router);
+        $this->routesWithParameters($router);
     }
 
-    protected function getRouteName(string $action): string
+    protected function getRouteName(string $action, string $controller = Controller::class): string
     {
-        $route = RouteFacade::getRoutes()->getByAction(Controller::class . '@' . $action);
-
-        dd(
-            implode(', ', $route->methods()),
-            $route->uri(),
-            $route->getName()
-        );
-
-        return RouteFacade::getRoutes()->getByAction(Controller::class . '@' . $action)->getName();
+        return RouteFacade::getRoutes()->getByAction($controller . '@' . $action)->getName();
     }
 }

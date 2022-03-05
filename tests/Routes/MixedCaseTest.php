@@ -10,11 +10,11 @@ class MixedCaseTest extends TestCase
 {
     public function testWeb(): void
     {
-        $this->assertSame('mixed_case.index', $this->getRouteName('caseFoo'));
-        $this->assertSame('mixed_case.store', $this->getRouteName('caseBar'));
-        $this->assertSame('mixed_case.update', $this->getRouteName('caseBaz'));
-        $this->assertSame('mixed_case.destroy', $this->getRouteName('caseBaq'));
-        $this->assertSame('mixed_case.patch', $this->getRouteName('caseBaw'));
-        $this->assertSame('mixed_case.options', $this->getRouteName('caseBae'));
+        $this->assertSame('mixed-case.case.index', $this->getRouteName('caseFoo'));
+        $this->assertSame('mixed-case.case.store', $this->getRouteName('caseBar'));
+        $this->assertSame('mixed-case.case.update', $this->getRouteName('caseBaz'));
+        $this->assertSame('mixed-case.case.destroy', $this->getRouteName('caseBaq'));
+        $this->assertSame('mixed-case.case.patch', $this->getRouteName('caseBaw'));
+        $this->assertSame('mixed-case.case.options', $this->getRouteName('caseBae'));
     }
 }
