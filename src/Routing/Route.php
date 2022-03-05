@@ -10,14 +10,6 @@ use Illuminate\Support\Str;
 
 class Route extends BaseRoute
 {
-    protected array $protected_routes_names = [
-        '_debugbar.*',
-        '_ignition.*',
-        'horizon.*',
-        'pretty-routes.*',
-        'telescope.*',
-    ];
-
     public function getName(): ?string
     {
         return $this->isProtectedRouteName()
@@ -28,7 +20,7 @@ class Route extends BaseRoute
     protected function isProtectedRouteName(): bool
     {
         if ($name = $this->getProtectedRouteName()) {
-            return Str::is($this->protected_routes_names, $name);
+            return Str::is($this->getProtectedRouteNames(), $name);
         }
 
         return false;
@@ -37,5 +29,10 @@ class Route extends BaseRoute
     protected function getProtectedRouteName(): ?string
     {
         return parent::getName();
+    }
+
+    protected function getProtectedRouteNames(): array
+    {
+        return config('route.names.exclude');
     }
 }

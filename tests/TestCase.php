@@ -17,6 +17,7 @@
 namespace Tests;
 
 use DragonCode\LaravelRouteNames\Application;
+use DragonCode\LaravelRouteNames\ServiceProvider;
 use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Support\Facades\Route as RouteFacade;
 use Orchestra\Testbench\Bootstrap\LoadConfiguration as OrchestraLoadConfiguration;
@@ -28,6 +29,11 @@ use Tests\Http\Controllers\Controller;
 abstract class TestCase extends BaseTestCase
 {
     use Routes;
+
+    protected function getPackageProviders($app): array
+    {
+        return [ServiceProvider::class];
+    }
 
     protected function resolveApplication()
     {
