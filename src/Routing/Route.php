@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace DragonCode\LaravelRouteNames\Routing;
 
 use DragonCode\LaravelRouteNames\Facades\Name;
-use DragonCode\Support\Facades\Helpers\Str;
 use Illuminate\Routing\Route as BaseRoute;
+use Illuminate\Support\Str;
 
 class Route extends BaseRoute
 {
