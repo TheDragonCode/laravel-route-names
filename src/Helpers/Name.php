@@ -24,7 +24,7 @@ class Name
             ->rtrim(' /')
             ->explode('/')
             ->filter(fn (string $value) => $this->has($value))
-            ->map(fn (string $value) => $this->map($value));
+            ->map(fn (string $value)    => $this->map($value));
     }
 
     protected function getMethodSuffix(array $methods, string $uri): string
