@@ -30,6 +30,18 @@ This is all. Now you don't have to specify route names. Now the route names will
 >
 > Also, [Laravel Idea](https://laravel-idea.com) support coming soon.
 
+Since route names are generated at the time they are received, we recommend using route caching in production:
+
+```bash
+php artisan route:cache
+```
+
+or
+
+```bash
+php artisan optimize
+```
+
 For example:
 
 ```php
