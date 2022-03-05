@@ -53,6 +53,7 @@ abstract class TestCase extends BaseTestCase
         $this->basicRoutes($router);
         $this->collisionRoutes($router);
         $this->mixedCases($router);
+        $this->protectedRoutes($router);
         $this->routesWithMultiParameters($router);
         $this->routesWithParameters($router);
     }
