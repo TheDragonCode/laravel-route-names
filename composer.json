@@ -48,5 +48,12 @@
         },
         "preferred-install": "dist",
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DragonCode\\LaravelRouteNames\\ServiceProvider"
+            ]
+        }
     }
 }
