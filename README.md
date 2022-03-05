@@ -10,13 +10,15 @@
 
 ## Installation
 
-To get the latest version of Laravel Actions, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version of `Laravel Route Names`, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
 composer require dragon-code/laravel-route-names
 ```
 
-Replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the `bootstrap/app.php` file.
+Next, replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the `bootstrap/app.php` file.
+
+Now, you can now list the routes, for example by calling the `php artisan route:list` command or by using the [`dragon-code/pretty-routes`](https://github.com/TheDragonCode/pretty-routes) package.
 
 ## Using
 
