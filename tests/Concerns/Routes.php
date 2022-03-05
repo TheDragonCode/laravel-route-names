@@ -109,4 +109,13 @@ trait Routes
 
         $router->apiResource('resources/comments', ApiResourceController::class);
     }
+
+    protected function protectedRoutes(Router $router): void
+    {
+        $router->get('routes', [Controller::class, 'prettyRoutesList'])->name('pretty-routes.list');
+        $router->get('routes', [Controller::class, 'prettyRoutesClear'])->name('pretty-routes.clear');
+
+        $router->get('telescope/{view?}', [Controller::class, 'telescopeShow'])->name('telescope.show');
+        $router->get('telescope/telescope-api/views/{telescopeEntryId}', [Controller::class, 'telescopeViewsShow'])->name('telescope.telescope-api.views.show');
+    }
 }
