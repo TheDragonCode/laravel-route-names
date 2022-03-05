@@ -6,4 +6,6 @@ vendor/
 *.clover
 *.orig
 
+ide.json
+
 composer.lock
