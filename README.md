@@ -25,6 +25,8 @@ This is all. Now you don't have to specify route names. Now the route names will
 > Note
 >
 > All previously specified route names in the application will be ignored.
+>
+> Also, [Laravel Idea](https://laravel-idea.com) support coming soon.
 
 For example:
 
