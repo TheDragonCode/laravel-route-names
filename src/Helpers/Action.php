@@ -91,8 +91,6 @@ class Action
 
     protected function hasAlias(string $uri, string $alias): bool
     {
-        //dump([$uri, $alias, Str::of($uri)->lower()->endsWith($alias)]);
-
         return Str::of($uri)->lower()->endsWith($alias);
     }
 }
