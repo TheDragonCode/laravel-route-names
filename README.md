@@ -61,20 +61,20 @@ app('router')->patch('pages/{page}', [PagesController::class, 'patch']);
 app('router')->options('pages/{page}', [PagesController::class, 'options']);
 ```
 
-| Method    | Url                            | Name            | Helper                   |
-|-----------|--------------------------------|-----------------|--------------------------|
-| GET, HEAD | `http://example.com`           | `index`         | `route('index')`         |
-| POST      | `http://example.com`           | `store`         | `route('store')`         |
-| PUT       | `http://example.com`           | `update`        | `route('update')`        |
-| DELETE    | `http://example.com`           | `destroy`       | `route('destroy')`       |
-| PATCH     | `http://example.com`           | `patch`         | `route('patch')`         |
-| OPTIONS   | `http://example.com`           | `options`       | `route('options')`       |
-| GET, HEAD | `http://example.com/pages`     | `pages.index`   | `route('pages.index')`   |
-| POST      | `http://example.com/pages`     | `pages.store`   | `route('pages.store')`   |
-| PUT       | `http://example.com/pages/123` | `pages.update`  | `route('pages.update')`  |
-| DELETE    | `http://example.com/pages/123` | `pages.destroy` | `route('pages.destroy')` |
-| PATCH     | `http://example.com/pages/123` | `pages.patch`   | `route('pages.patch')`   |
-| OPTIONS   | `http://example.com/pages/123` | `pages.options` | `route('pages.options')` |
+| Method    | Url          | Name            | Helper                   |
+|-----------|--------------|-----------------|--------------------------|
+| GET, HEAD | `/`          | `index`         | `route('index')`         |
+| POST      | `/`          | `store`         | `route('store')`         |
+| PUT       | `/`          | `update`        | `route('update')`        |
+| DELETE    | `/`          | `destroy`       | `route('destroy')`       |
+| PATCH     | `/`          | `patch`         | `route('patch')`         |
+| OPTIONS   | `/`          | `options`       | `route('options')`       |
+| GET, HEAD | `/pages`     | `pages.index`   | `route('pages.index')`   |
+| POST      | `/pages`     | `pages.store`   | `route('pages.store')`   |
+| PUT       | `/pages/123` | `pages.update`  | `route('pages.update')`  |
+| DELETE    | `/pages/123` | `pages.destroy` | `route('pages.destroy')` |
+| PATCH     | `/pages/123` | `pages.patch`   | `route('pages.patch')`   |
+| OPTIONS   | `/pages/123` | `pages.options` | `route('pages.options')` |
 
 ### Resource Routes
 
@@ -84,14 +84,14 @@ app('router')->resource('authors/{author}/photos', Author\PhotoController::class
 
 | Method    | Url                                                  | Name                     | Helper                            |
 |-----------|------------------------------------------------------|--------------------------|-----------------------------------|
-| GET, HEAD | `http://example.com/authors/123/photos`              | `authors.photos.index`   | `route('authors.photos.index')`   |
-| GET, HEAD | `http://example.com/authors/123/photos/create`       | `authors.photos.create`  | `route('authors.photos.create')`  |
-| POST      | `http://example.com/authors/123/photos`              | `authors.photos.store`   | `route('authors.photos.store')`   |
-| GET       | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.show`    | `route('authors.photos.show')`    |
-| GET       | `http://example.com/authors/123/photos/{photo}/edit` | `authors.photos.edit`    | `route('authors.photos.edit')`    |
-| PUT       | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.update`  | `route('authors.photos.update')`  |
-| PATCH     | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.patch`   | `route('authors.photos.patch')`   |
-| DELETE    | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.destroy` | `route('authors.photos.destroy')` |
+| GET, HEAD | `/authors/123/photos`                                | `authors.photos.index`   | `route('authors.photos.index')`   |
+| GET, HEAD | `/authors/123/photos/create`                         | `authors.photos.create`  | `route('authors.photos.create')`  |
+| POST      | `/authors/123/photos`                                | `authors.photos.store`   | `route('authors.photos.store')`   |
+| GET       | `/authors/123/photos/{photo}`                        | `authors.photos.show`    | `route('authors.photos.show')`    |
+| GET       | `/authors/123/photos/{photo}/edit`                   | `authors.photos.edit`    | `route('authors.photos.edit')`    |
+| PUT       | `/authors/123/photos/{photo}`                        | `authors.photos.update`  | `route('authors.photos.update')`  |
+| PATCH     | `/authors/123/photos/{photo}`                        | `authors.photos.patch`   | `route('authors.photos.patch')`   |
+| DELETE    | `/authors/123/photos/{photo}`                        | `authors.photos.destroy` | `route('authors.photos.destroy')` |
 
 ### API Resource Routes
 
@@ -99,14 +99,14 @@ app('router')->resource('authors/{author}/photos', Author\PhotoController::class
 app('router')->apiResource('authors/{author}/photos', Author\PhotoController::class);
 ```
 
-| Method    | Url                                                  | Name                     | Helper                            |
-|-----------|------------------------------------------------------|--------------------------|-----------------------------------|
-| GET, HEAD | `http://example.com/authors/123/photos`              | `authors.photos.index`   | `route('authors.photos.index')`   |
-| POST      | `http://example.com/authors/123/photos`              | `authors.photos.store`   | `route('authors.photos.store')`   |
-| GET       | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.show`    | `route('authors.photos.show')`    |
-| PUT       | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.update`  | `route('authors.photos.update')`  |
-| PATCH     | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.patch`   | `route('authors.photos.patch')`   |
-| DELETE    | `http://example.com/authors/123/photos/{photo}`      | `authors.photos.destroy` | `route('authors.photos.destroy')` |
+| Method    | Url                           | Name                     | Helper                            |
+|-----------|-------------------------------|--------------------------|-----------------------------------|
+| GET, HEAD | `/authors/123/photos`         | `authors.photos.index`   | `route('authors.photos.index')`   |
+| POST      | `/authors/123/photos`         | `authors.photos.store`   | `route('authors.photos.store')`   |
+| GET       | `/authors/123/photos/{photo}` | `authors.photos.show`    | `route('authors.photos.show')`    |
+| PUT       | `/authors/123/photos/{photo}` | `authors.photos.update`  | `route('authors.photos.update')`  |
+| PATCH     | `/authors/123/photos/{photo}` | `authors.photos.patch`   | `route('authors.photos.patch')`   |
+| DELETE    | `/authors/123/photos/{photo}` | `authors.photos.destroy` | `route('authors.photos.destroy')` |
 
 ## License
 
