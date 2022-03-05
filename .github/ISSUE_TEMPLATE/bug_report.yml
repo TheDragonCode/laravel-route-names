@@ -16,14 +16,13 @@ body:
         attributes:
             label: Environment
             description: |
-                Tip: Use the `composer info dragon-code/laravel-migration-actions` command to get information for Laravel Lang.
+                Tip: Use the `composer info dragon-code/laravel-route-names` command to get information about package.
                 Tip: Use the `php artisan --version` command to get information for Laravel Framework.
                 Tip: Use the `php -v` command to get information for PHP.
             value: |
-                - Migration Actions Version:
+                - Route Names Version:
                 - Laravel Version:
                 - PHP Version:
-                - Database Driver & Version:
         validations:
             required: true
 
@@ -50,4 +49,4 @@ body:
     -   type: markdown
         attributes:
             value: |
-                ❤️ The Dragon Code? Please consider supporting our collective: https://opencollective.com/dragon-code
+                ❤️ The Dragon Code? Please consider supporting our collective: https://github.com/sponsors/TheDragonCode

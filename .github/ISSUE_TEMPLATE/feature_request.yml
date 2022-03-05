@@ -19,7 +19,7 @@ body:
             description: |
                 Think through your proposal and describe it clearly.
 
-                Note that features are only added to the most recent version of Laravel Lang.
+                Note that features are only added to the most recent version of Laravel Route Names.
         validations:
             required: true
 
@@ -28,18 +28,17 @@ body:
         attributes:
             label: Environment
             description: |
-                Tip: Use the `composer info dragon-code/laravel-migration-actions` command to get information for Laravel Lang.
-                Tip: Use the `php artisan --version` command to get information for your application.
+                Tip: Use the `composer info dragon-code/laravel-route-names` command to get information about package.
+                Tip: Use the `php artisan --version` command to get information for Laravel Framework.
                 Tip: Use the `php -v` command to get information for PHP.
             value: |
-                - Migration Actions Version:
+                - Route Names Version:
                 - Laravel Version:
                 - PHP Version:
-                - Database Driver & Version:
         validations:
             required: false
 
     -   type: markdown
         attributes:
             value: |
-                ❤️ The Dragon Code? Please consider supporting our collective: https://opencollective.com/dragon-code
+                ❤️ The Dragon Code? Please consider supporting our collective: https://github.com/sponsors/TheDragonCode
