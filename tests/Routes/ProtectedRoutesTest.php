@@ -13,7 +13,7 @@ class ProtectedRoutesTest extends TestCase
         $this->assertSame('pretty-routes.list', $this->getRouteName('prettyRoutesList'));
         $this->assertSame('pretty-routes.clear', $this->getRouteName('prettyRoutesClear'));
 
-        $this->assertSame('telescope.show', $this->getRouteName('telescopeShow'));
+        $this->assertSame('telescope', $this->getRouteName('telescopeShow'));
         $this->assertSame('telescope.telescope-api.views.show', $this->getRouteName('telescopeViewsShow'));
     }
 }

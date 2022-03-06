@@ -118,7 +118,7 @@ trait Routes
         $router->get('routes', [Controller::class, 'prettyRoutesList'])->name('pretty-routes.list');
         $router->get('routes', [Controller::class, 'prettyRoutesClear'])->name('pretty-routes.clear');
 
-        $router->get('telescope/{view?}', [Controller::class, 'telescopeShow'])->name('telescope.show');
-        $router->get('telescope/telescope-api/views/{telescopeEntryId}', [Controller::class, 'telescopeViewsShow'])->name('telescope.telescope-api.views.show');
+        $router->get('telescope/{view?}', [Controller::class, 'telescopeShow'])->name('telescope');
+        $router->get('telescope/telescope-api/views/{telescopeEntryId}', [Controller::class, 'telescopeViewsShow']);
     }
 }
