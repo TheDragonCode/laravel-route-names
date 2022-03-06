@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Routes;
 
 use Tests\Http\Controllers\ApiResourceController;
+use Tests\Http\Controllers\RestorableResourceController;
 use Tests\Http\Controllers\WebResourceController;
 use Tests\TestCase;
 
@@ -28,5 +29,16 @@ class ResourcesTest extends TestCase
         $this->assertSame('api.resources.comments.show', $this->getRouteName('show', ApiResourceController::class));
         $this->assertSame('api.resources.comments.update', $this->getRouteName('update', ApiResourceController::class));
         $this->assertSame('api.resources.comments.destroy', $this->getRouteName('destroy', ApiResourceController::class));
+    }
+
+    public function testRestorableApi(): void
+    {
+        $this->assertSame('api.resources.pages.index', $this->getRouteName('index', RestorableResourceController::class));
+        $this->assertSame('api.resources.pages.store', $this->getRouteName('store', RestorableResourceController::class));
+        $this->assertSame('api.resources.pages.trashed', $this->getRouteName('trashed', RestorableResourceController::class));
+        $this->assertSame('api.resources.pages.show', $this->getRouteName('show', RestorableResourceController::class));
+        $this->assertSame('api.resources.pages.update', $this->getRouteName('update', RestorableResourceController::class));
+        $this->assertSame('api.resources.pages.destroy', $this->getRouteName('destroy', RestorableResourceController::class));
+        $this->assertSame('api.resources.pages.restore', $this->getRouteName('restore', RestorableResourceController::class));
     }
 }

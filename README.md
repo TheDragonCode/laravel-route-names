@@ -18,7 +18,8 @@ composer require dragon-code/laravel-route-names
 
 Next, replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the `bootstrap/app.php` file.
 
-You can now list the routes, for example by calling the `php artisan route:list` command or by using the [`dragon-code/pretty-routes`](https://github.com/TheDragonCode/pretty-routes) package.
+You can now list the routes, for example by calling the `php artisan route:list` command or by using
+the [`dragon-code/pretty-routes`](https://github.com/TheDragonCode/pretty-routes) package.
 
 ## Using
 
@@ -34,27 +35,10 @@ Since route names are generated at the time they are received, we recommend usin
 
 ```bash
 php artisan route:cache
-```
 
-or
+// or
 
-```bash
 php artisan optimize
-```
-
-For example:
-
-```php
-app('router')
-    ->get('pages', [IndexController::class, 'index'])
-    ->name('my_pages');
-
-return route('my_pages');
-//  \Symfony\Component\Routing\Exception\RouteNotFoundException
-//  Route [my_pages] not defined.
-
-return route('pages.index');
-// Returns the result of executing the `IndexController@index` method.
 ```
 
 ### Base Routes
@@ -121,6 +105,21 @@ app('router')->apiResource('authors/{author}/photos', Author\PhotoController::cl
 | PUT       | `/authors/123/photos/{photo}` | `authors.photos.update`  | `route('authors.photos.update')`  |
 | PATCH     | `/authors/123/photos/{photo}` | `authors.photos.patch`   | `route('authors.photos.patch')`   |
 | DELETE    | `/authors/123/photos/{photo}` | `authors.photos.destroy` | `route('authors.photos.destroy')` |
+
+### Exceptions
+
+```php
+app('router')
+    ->get('pages', [IndexController::class, 'index'])
+    ->name('my_pages');
+
+return route('my_pages');
+//  \Symfony\Component\Routing\Exception\RouteNotFoundException
+//  Route [my_pages] not defined.
+
+return route('pages.index');
+// Returns the result of executing the `IndexController@index` method.
+```
 
 ## Result
 

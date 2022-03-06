@@ -24,6 +24,8 @@ class Action
         'edit'    => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
         'destroy' => [RequestMethodInterface::METHOD_DELETE],
         'delete'  => [RequestMethodInterface::METHOD_DELETE],
+        'trashed' => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
+        'restore' => [RequestMethodInterface::METHOD_POST],
     ];
 
     protected array $show = [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD];
