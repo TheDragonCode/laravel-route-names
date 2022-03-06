@@ -122,6 +122,38 @@ app('router')->apiResource('authors/{author}/photos', Author\PhotoController::cl
 | PATCH     | `/authors/123/photos/{photo}` | `authors.photos.patch`   | `route('authors.photos.patch')`   |
 | DELETE    | `/authors/123/photos/{photo}` | `authors.photos.destroy` | `route('authors.photos.destroy')` |
 
+## Result
+
+```php
+app('router')
+    ->name('pages.')
+    ->prefix('pages')
+    ->group(function () {
+        app('router')->get('/', [Controller::class, 'index']);
+        app('router')->post('/', [Controller::class, 'store']);
+        app('router')->get('{page}', [Controller::class, 'show']);
+        app('router')->delete('{page}', [Controller::class, 'destroy']);
+    });
+```
+
+**Before:**
+
+```bash
+GET     /pages         pages.
+POST    /pages         pages.
+GET     /pages/{page}  pages.
+DELETE  /pages/{page}  pages.
+```
+
+**After:**
+
+```bash
+GET     /pages         pages.index
+POST    /pages         pages.store
+GET     /pages/{page}  pages.show
+DELETE  /pages/{page}  pages.destroy
+```
+
 ## License
 
 This package is licensed under the [MIT License](LICENSE).
