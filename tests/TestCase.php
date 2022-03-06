@@ -16,6 +16,7 @@
 
 namespace Tests;
 
+use DragonCode\ExtendedRoutes\ServiceProvider as ExtendedRoutesServiceProvider;
 use DragonCode\LaravelRouteNames\Application;
 use DragonCode\LaravelRouteNames\ServiceProvider;
 use Illuminate\Foundation\Bootstrap\LoadConfiguration;
@@ -32,7 +33,10 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app): array
     {
-        return [ServiceProvider::class];
+        return [
+            ExtendedRoutesServiceProvider::class,
+            ServiceProvider::class,
+        ];
     }
 
     protected function resolveApplication()

@@ -7,6 +7,7 @@ namespace Tests\Concerns;
 use Illuminate\Routing\Router;
 use Tests\Http\Controllers\ApiResourceController;
 use Tests\Http\Controllers\Controller;
+use Tests\Http\Controllers\RestorableResourceController;
 use Tests\Http\Controllers\WebResourceController;
 
 trait Routes
@@ -108,6 +109,8 @@ trait Routes
         $router->resource('resources/photos', WebResourceController::class);
 
         $router->apiResource('resources/comments', ApiResourceController::class);
+
+        $router->apiRestorableResource('resources/pages', RestorableResourceController::class);
     }
 
     protected function protectedRoutes(Router $router): void
