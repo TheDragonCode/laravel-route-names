@@ -25,9 +25,9 @@ the [`dragon-code/pretty-routes`](https://github.com/TheDragonCode/pretty-routes
 
 This is all. Now you don't have to specify route names. Now the route names will be generated automatically based on the final URL of your project.
 
-> Note
->
 > All previously specified route names in the application will be ignored.
+>
+> Compatible with all package solutions for expanding the list of routes.
 >
 > Also, [Laravel Idea](https://laravel-idea.com) support coming soon.
 
