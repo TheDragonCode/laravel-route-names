@@ -106,6 +106,14 @@ app('router')->apiResource('authors/{author}/photos', Author\PhotoController::cl
 | PATCH     | `/authors/123/photos/{photo}` | `authors.photos.patch`   | `route('authors.photos.patch')`   |
 | DELETE    | `/authors/123/photos/{photo}` | `authors.photos.destroy` | `route('authors.photos.destroy')` |
 
+### List of exclusions
+
+By publishing a configuration file with the artisan command, you can explicitly specify a mask of route names that do not need to be translated:
+
+```bash
+php artisan vendor:publish --provider="DragonCode\LaravelRouteNames\ServiceProvider"
+```
+
 ### Exceptions
 
 ```php
