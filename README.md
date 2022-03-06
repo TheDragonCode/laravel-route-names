@@ -127,7 +127,7 @@ app('router')->apiResource('authors/{author}/photos', Author\PhotoController::cl
 This package is licensed under the [MIT License](LICENSE).
 
 
-[badge_build]:          https://img.shields.io/github/workflow/status/TheDragonCode/laravel-route-names/laravel-9?style=flat-square
+[badge_build]:          https://img.shields.io/github/workflow/status/TheDragonCode/laravel-route-names/Laravel%209/main?style=flat-square
 
 [badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/laravel-route-names.svg?style=flat-square
 
