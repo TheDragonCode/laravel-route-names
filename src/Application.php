@@ -11,8 +11,7 @@ class Application extends BaseApplication
 {
     protected function registerBaseServiceProviders()
     {
-        $this->register(new EventServiceProvider($this));
-        $this->register(new LogServiceProvider($this));
+        parent::registerBaseServiceProviders();
         $this->register(new RoutingServiceProvider($this));
     }
 }
