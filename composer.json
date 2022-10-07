@@ -21,6 +21,24 @@
         "issues": "https://github.com/TheDragonCode/laravel-route-names/issues",
         "source": "https://github.com/TheDragonCode/laravel-route-names"
     },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/TheDragonCode"
+        },
+        {
+            "type": "open_collective",
+            "url": "https://opencollective.com/dragon-code"
+        },
+        {
+            "type": "boosty",
+            "url": "https://boosty.to/dragon-code"
+        },
+        {
+            "type": "yoomoney",
+            "url": "https://yoomoney.ru/to/410012608840929"
+        }
+    ],
     "require": {
         "php": "^7.4 || ^8.0",
         "fig/http-message-util": "^1.1",
