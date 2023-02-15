@@ -1,4 +1,5 @@
-name: "Laravel 7"
+name: phpunit
+
 on: [ push ]
 
 jobs:
@@ -8,10 +9,25 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [ "7.4", "8.0" ]
-                laravel: [ "7.0" ]
+                php: [ "7.4", "8.0", "8.1", "8.2" ]
+                laravel: [ "7.0", "8.0", "9.0", "10.0" ]
+                exclude:
+                    -   laravel: "7.0"
+                        php: "8.1"
 
-        name: PHP ${{ matrix.php }}
+                    -   laravel: "7.0"
+                        php: "8.2"
+
+                    -   laravel: "9.0"
+                        php: "7.4"
+
+                    -   laravel: "10.0"
+                        php: "7.4"
+
+                    -   laravel: "10.0"
+                        php: "8.0"
+
+        name: PHP ${{ matrix.php }}, Laravel ${{ matrix.laravel }}
 
         steps:
             -   name: Checkout code
@@ -28,4 +44,4 @@ jobs:
                 run: composer require --dev laravel/framework:^${{ matrix.laravel }}
 
             -   name: Execute tests
-                run: sudo vendor/bin/phpunit --colors=always
+                run: sudo vendor/bin/phpunit
