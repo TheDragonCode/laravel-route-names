@@ -1,6 +1,6 @@
 # Auto Route Names for Laravel
 
-![the dragon code route names](https://preview.dragon-code.pro/the-dragon-code/route-names.svg?brand=laravel)
+![the dragon code route names](https://preview.dragon-code.pro/the-dragon-code/auto-route-names.svg?brand=laravel)
 
 [![Stable Version][badge_stable]][link_packagist]
 [![Unstable Version][badge_unstable]][link_packagist]
