@@ -1,4 +1,4 @@
-# Laravel Route Names
+# Auto Route Names for Laravel
 
 ![the dragon code route names](https://preview.dragon-code.pro/the-dragon-code/route-names.svg?brand=laravel)
 
