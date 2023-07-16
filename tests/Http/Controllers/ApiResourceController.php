@@ -6,7 +6,5 @@ use Illuminate\Routing\Controller as BaseController;
 
 class ApiResourceController extends BaseController
 {
-    public function __invoke()
-    {
-    }
+    public function __invoke() {}
 }

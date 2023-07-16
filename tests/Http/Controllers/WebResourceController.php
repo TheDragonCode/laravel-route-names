@@ -6,7 +6,5 @@ use Illuminate\Routing\Controller as BaseController;
 
 class WebResourceController extends BaseController
 {
-    public function __invoke()
-    {
-    }
+    public function __invoke() {}
 }

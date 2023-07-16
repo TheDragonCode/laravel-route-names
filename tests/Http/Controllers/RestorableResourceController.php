@@ -8,7 +8,5 @@ use Illuminate\Routing\Controller as BaseController;
 
 class RestorableResourceController extends BaseController
 {
-    public function __invoke()
-    {
-    }
+    public function __invoke() {}
 }
