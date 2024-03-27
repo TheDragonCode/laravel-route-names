@@ -7,6 +7,8 @@
 [![Total Downloads][badge_downloads]][link_packagist]
 [![Github Workflow Status][badge_build]][link_build]
 [![License][badge_license]][link_license]
+[![Imports](https://github.com/imanghafoori1/laravel-route-names/actions/workflows/imports.yml/badge.svg?branch=main)](https://github.com/imanghafoori1/laravel-route-names/actions/workflows/imports.yml)
+
 
 ## Installation
 
