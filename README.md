@@ -7,8 +7,7 @@
 [![Total Downloads][badge_downloads]][link_packagist]
 [![Github Workflow Status][badge_build]][link_build]
 [![License][badge_license]][link_license]
-[![Imports](https://github.com/imanghafoori1/laravel-route-names/actions/workflows/imports.yml/badge.svg?branch=main)](https://github.com/imanghafoori1/laravel-route-names/actions/workflows/imports.yml)
-
+[![Imports][badge_check_imports]][check_imports]
 
 ## Installation
 
@@ -177,6 +176,10 @@ This package is licensed under the [MIT License](LICENSE).
 [badge_stable]:         https://img.shields.io/github/v/release/TheDragonCode/laravel-route-names?label=stable&style=flat-square
 
 [badge_unstable]:       https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
+
+[badge_check_imports]:  https://github.com/TheDragonCode/laravel-route-names/actions/workflows/imports.yml/badge.svg?branch=main
+
+[check_imports]:        https://github.com/TheDragonCode/laravel-route-names/actions/workflows/imports.yml
 
 [link_build]:           https://github.com/TheDragonCode/laravel-route-names/actions
 
