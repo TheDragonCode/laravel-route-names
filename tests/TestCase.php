@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the "dragon-code/support" project.
  *
@@ -16,13 +17,11 @@
 
 namespace Tests;
 
-use DragonCode\ExtendedRoutes\ServiceProvider as ExtendedRoutesServiceProvider;
-use DragonCode\LaravelRouteNames\Application;
+use DragonCode\LaravelRouteNames\Providers\RoutingServiceProvider;
 use DragonCode\LaravelRouteNames\ServiceProvider;
-use Illuminate\Foundation\Bootstrap\LoadConfiguration;
+use Illuminate\Events\EventServiceProvider;
+use Illuminate\Log\LogServiceProvider;
 use Illuminate\Support\Facades\Route as RouteFacade;
-use Orchestra\Testbench\Bootstrap\LoadConfiguration as OrchestraLoadConfiguration;
-use Orchestra\Testbench\Foundation\PackageManifest;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Tests\Concerns\Routes;
 use Tests\Http\Controllers\Controller;
@@ -34,18 +33,11 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app): array
     {
         return [
-            ExtendedRoutesServiceProvider::class,
+            EventServiceProvider::class,
+            LogServiceProvider::class,
+            RoutingServiceProvider::class,
             ServiceProvider::class,
         ];
-    }
-
-    protected function resolveApplication()
-    {
-        return tap(new Application($this->getBasePath()), function ($app) {
-            $app->bind(LoadConfiguration::class, OrchestraLoadConfiguration::class);
-
-            PackageManifest::swap($app, $this);
-        });
     }
 
     protected function defineRoutes($router)
