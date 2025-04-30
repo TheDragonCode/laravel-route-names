@@ -1,10 +1,8 @@
 laravel: '@testbench'
-
 providers:
     - DragonCode\LaravelRouteNames\ServiceProvider
-
 workbench:
-    start: '/'
+    start: /
     install: false
     health: false
     discovers:
