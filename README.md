@@ -16,7 +16,9 @@ To get the latest version of `Laravel Route Names`, simply require the project u
 composer require dragon-code/laravel-route-names
 ```
 
-Next, you can now list the routes, for example by calling the `php artisan route:list` command or by using
+Next, replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the `bootstrap/app.php` file.
+
+You can now list the routes, for example by calling the `php artisan route:list` command or by using
 the [`dragon-code/pretty-routes`](https://github.com/TheDragonCode/pretty-routes) package.
 
 ## Using
