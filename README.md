@@ -16,7 +16,7 @@ using [Composer](https://getcomposer.org):
 composer require dragon-code/laravel-route-names
 ```
 
-> [!ATTENTION]
+> [!WARNING]
 >
 > For naming to work correctly, you need to replace the application class otherwise the code will be loaded too late.
 >
