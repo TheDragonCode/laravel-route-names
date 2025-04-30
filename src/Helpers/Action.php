@@ -83,7 +83,7 @@ class Action
     protected function hasMethods(array $route, array $aliases): bool
     {
         foreach ($route as $value) {
-            if (in_array($value, $aliases)) {
+            if (in_array($value, $aliases, true)) {
                 return true;
             }
         }
