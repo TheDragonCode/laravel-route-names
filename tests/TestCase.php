@@ -17,7 +17,6 @@
 
 namespace Tests;
 
-use DragonCode\LaravelRouteNames\Providers\RoutingServiceProvider;
 use DragonCode\LaravelRouteNames\ServiceProvider;
 use Illuminate\Events\EventServiceProvider;
 use Illuminate\Log\LogServiceProvider;
@@ -35,7 +34,6 @@ abstract class TestCase extends BaseTestCase
         return [
             EventServiceProvider::class,
             LogServiceProvider::class,
-            RoutingServiceProvider::class,
             ServiceProvider::class,
         ];
     }
