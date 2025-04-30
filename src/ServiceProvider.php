@@ -46,10 +46,10 @@ class ServiceProvider extends BaseServiceProvider
         $this->app->booting(function (): void {
             $this->app->extend(
                 'router',
-                static fn(
+                static fn (
                     BaseRouter $router,
                     $app
-                ): Router => !$router instanceof Router ? new Router($app['events'], $app) : $router
+                ): Router => ! $router instanceof Router ? new Router($app['events'], $app) : $router
             );
         });
     }
