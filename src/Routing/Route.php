@@ -14,7 +14,10 @@ class Route extends BaseRoute
     {
         return $this->isProtectedRouteName()
             ? $this->getProtectedRouteName()
-            : Name::get($this->methods(), $this->uri());
+            : app()->call($this->getRouteNamesExtender(), [
+                'name'  => Name::get($this->methods(), $this->uri()),
+                'route' => $this,
+            ]);
     }
 
     protected function isProtectedRouteName(): bool
@@ -34,5 +37,13 @@ class Route extends BaseRoute
     protected function getProtectedRouteNames(): array
     {
         return config('route.names.exclude');
+    }
+
+    /**
+     * @return (callable(string, self): string)|string
+     */
+    protected function getRouteNamesExtender()
+    {
+        return config('route.names.extender') ?: static fn (string $name): string => $name;
     }
 }
