@@ -12,12 +12,14 @@ class Route extends BaseRoute
 {
     public function getName(): ?string
     {
-        return $this->isProtectedRouteName()
-            ? $this->getProtectedRouteName()
-            : app()->call($this->getRouteNamesExtender(), [
-                'name'  => Name::get($this->methods(), $this->uri()),
-                'route' => $this,
-            ]);
+        if ($this->isProtectedRouteName()) {
+            return $this->getProtectedRouteName();
+        }
+
+        return app()->call($this->getRouteNamesExtender(), [
+            'name'  => Name::get($this->methods(), $this->uri()),
+            'route' => $this,
+        ]);
     }
 
     protected function isProtectedRouteName(): bool
