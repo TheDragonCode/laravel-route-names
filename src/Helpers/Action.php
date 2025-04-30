@@ -4,31 +4,31 @@ declare(strict_types=1);
 
 namespace DragonCode\LaravelRouteNames\Helpers;
 
-use Fig\Http\Message\RequestMethodInterface;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\Request;
 
 class Action
 {
     protected array $aliases = [
-        'index'   => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
-        'store'   => [RequestMethodInterface::METHOD_POST],
-        'update'  => [RequestMethodInterface::METHOD_PUT],
-        'destroy' => [RequestMethodInterface::METHOD_DELETE],
-        'patch'   => [RequestMethodInterface::METHOD_PATCH],
-        'options' => [RequestMethodInterface::METHOD_OPTIONS],
+        'index'   => [Request::METHOD_GET, Request::METHOD_HEAD],
+        'store'   => [Request::METHOD_POST],
+        'update'  => [Request::METHOD_PUT],
+        'destroy' => [Request::METHOD_DELETE],
+        'patch'   => [Request::METHOD_PATCH],
+        'options' => [Request::METHOD_OPTIONS],
     ];
 
     protected array $collision = [
-        'create'  => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
-        'show'    => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
-        'edit'    => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
-        'destroy' => [RequestMethodInterface::METHOD_DELETE],
-        'delete'  => [RequestMethodInterface::METHOD_DELETE],
-        'trashed' => [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD],
-        'restore' => [RequestMethodInterface::METHOD_POST],
+        'create'  => [Request::METHOD_GET, Request::METHOD_HEAD],
+        'show'    => [Request::METHOD_GET, Request::METHOD_HEAD],
+        'edit'    => [Request::METHOD_GET, Request::METHOD_HEAD],
+        'destroy' => [Request::METHOD_DELETE],
+        'delete'  => [Request::METHOD_DELETE],
+        'trashed' => [Request::METHOD_GET, Request::METHOD_HEAD],
+        'restore' => [Request::METHOD_POST],
     ];
 
-    protected array $show = [RequestMethodInterface::METHOD_GET, RequestMethodInterface::METHOD_HEAD];
+    protected array $show = [Request::METHOD_GET, Request::METHOD_HEAD];
 
     protected string $default = 'index';
 
