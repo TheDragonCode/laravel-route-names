@@ -42,7 +42,7 @@ class Route extends BaseRoute
     /**
      * @return (callable(string, self): string)|string
      */
-    protected function getRouteNamesExtender(): ?callable
+    protected function getRouteNamesExtender(): callable|string|null
     {
         return config('route.names.extender') ?: static fn (string $name): string => $name;
     }
