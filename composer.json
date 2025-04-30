@@ -44,12 +44,13 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "DragonCode\\LaravelRouteNames\\": "src"
+            "DragonCode\\LaravelRouteNames\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests"
+            "Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
         }
     },
     "config": {
@@ -71,6 +72,13 @@
         }
     },
     "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "test": "@php vendor/bin/phpunit",
         "test-coverage": "@test --coverage-text --coverage-html=.build/phpunit/"
     }

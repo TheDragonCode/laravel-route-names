@@ -9,18 +9,23 @@
 
 ## Installation
 
-To get the latest version of `Laravel Route Names`, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version of `Laravel Route Names`, simply require the project
+using [Composer](https://getcomposer.org):
 
 ```bash
 composer require dragon-code/laravel-route-names
 ```
+
+Next, replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the
+`bootstrap/app.php` file.
 
 You can now list the routes, for example by calling the `php artisan route:list` command or by using
 the [`dragon-code/pretty-routes`](https://github.com/TheDragonCode/pretty-routes) package.
 
 ## Using
 
-This is all. Now you don't have to specify route names. Now the route names will be generated automatically based on the final URL of your project.
+This is all. Now you don't have to specify route names. Now the route names will be generated automatically based on the
+final URL of your project.
 
 > All previously specified route names in the application will be ignored.
 >
@@ -75,16 +80,16 @@ app('router')->options('pages/{page}', [PagesController::class, 'options']);
 app('router')->resource('authors/{author}/photos', Author\PhotoController::class);
 ```
 
-| Method    | Url                                                  | Name                     | Helper                            |
-|-----------|------------------------------------------------------|--------------------------|-----------------------------------|
-| GET, HEAD | `/authors/123/photos`                                | `authors.photos.index`   | `route('authors.photos.index')`   |
-| GET, HEAD | `/authors/123/photos/create`                         | `authors.photos.create`  | `route('authors.photos.create')`  |
-| POST      | `/authors/123/photos`                                | `authors.photos.store`   | `route('authors.photos.store')`   |
-| GET       | `/authors/123/photos/{photo}`                        | `authors.photos.show`    | `route('authors.photos.show')`    |
-| GET       | `/authors/123/photos/{photo}/edit`                   | `authors.photos.edit`    | `route('authors.photos.edit')`    |
-| PUT       | `/authors/123/photos/{photo}`                        | `authors.photos.update`  | `route('authors.photos.update')`  |
-| PATCH     | `/authors/123/photos/{photo}`                        | `authors.photos.patch`   | `route('authors.photos.patch')`   |
-| DELETE    | `/authors/123/photos/{photo}`                        | `authors.photos.destroy` | `route('authors.photos.destroy')` |
+| Method    | Url                                | Name                     | Helper                            |
+|-----------|------------------------------------|--------------------------|-----------------------------------|
+| GET, HEAD | `/authors/123/photos`              | `authors.photos.index`   | `route('authors.photos.index')`   |
+| GET, HEAD | `/authors/123/photos/create`       | `authors.photos.create`  | `route('authors.photos.create')`  |
+| POST      | `/authors/123/photos`              | `authors.photos.store`   | `route('authors.photos.store')`   |
+| GET       | `/authors/123/photos/{photo}`      | `authors.photos.show`    | `route('authors.photos.show')`    |
+| GET       | `/authors/123/photos/{photo}/edit` | `authors.photos.edit`    | `route('authors.photos.edit')`    |
+| PUT       | `/authors/123/photos/{photo}`      | `authors.photos.update`  | `route('authors.photos.update')`  |
+| PATCH     | `/authors/123/photos/{photo}`      | `authors.photos.patch`   | `route('authors.photos.patch')`   |
+| DELETE    | `/authors/123/photos/{photo}`      | `authors.photos.destroy` | `route('authors.photos.destroy')` |
 
 ### API Resource Routes
 
@@ -103,7 +108,8 @@ app('router')->apiResource('authors/{author}/photos', Author\PhotoController::cl
 
 ### List of exclusions
 
-By publishing a configuration file with the artisan command, you can explicitly specify a mask of route names that do not need to be translated:
+By publishing a configuration file with the artisan command, you can explicitly specify a mask of route names that do
+not need to be translated:
 
 ```bash
 php artisan vendor:publish --provider="DragonCode\LaravelRouteNames\ServiceProvider"

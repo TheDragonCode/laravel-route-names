@@ -19,50 +19,19 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use DragonCode\LaravelRouteNames\ServiceProvider;
-use Illuminate\Events\EventServiceProvider;
-use Illuminate\Log\LogServiceProvider;
-use Illuminate\Support\Facades\Route as RouteFacade;
+use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Tests\Concerns\Routes;
-use Tests\Http\Controllers\Controller;
+use Workbench\App\Http\Controllers\SomeController;
 
 abstract class TestCase extends BaseTestCase
 {
-    use Routes;
-
-    protected function getPackageProviders($app): array
+    public static function applicationBasePathUsingWorkbench(): ?string
     {
-        return [
-            EventServiceProvider::class,
-            LogServiceProvider::class,
-            ServiceProvider::class,
-        ];
+        return __DIR__ . '/../workbench';
     }
 
-    protected function defineRoutes($router)
+    protected function getRouteName(string $action, string $controller = SomeController::class): string
     {
-        $router
-            ->middleware('api')
-            ->prefix('api')
-            ->group(function () use ($router) {
-                $this->resourceRoutes($router);
-            });
-    }
-
-    protected function defineWebRoutes($router)
-    {
-        $this->basicRoutes($router);
-        $this->collisionRoutes($router);
-        $this->mixedCases($router);
-        $this->protectedRoutes($router);
-        $this->extendedRoutes($router);
-        $this->routesWithMultiParameters($router);
-        $this->routesWithParameters($router);
-    }
-
-    protected function getRouteName(string $action, string $controller = Controller::class): string
-    {
-        return RouteFacade::getRoutes()->getByAction($controller . '@' . $action)->getName();
+        return Route::getRoutes()->getByAction($controller . '@' . $action)->getName();
     }
 }
