@@ -26,8 +26,6 @@ This is all. Now you don't have to specify route names. Now the route names will
 > All previously specified route names in the application will be ignored.
 >
 > Compatible with all package solutions for expanding the list of routes.
->
-> Also, [Laravel Idea](https://laravel-idea.com) support coming soon.
 
 Since route names are generated at the time they are received, we recommend using route caching in production:
 
