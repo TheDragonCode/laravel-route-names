@@ -16,7 +16,11 @@ using [Composer](https://getcomposer.org):
 composer require dragon-code/laravel-route-names
 ```
 
-Next, replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the
+> [!ATTENTION]
+>
+> For naming to work correctly, you need to replace the application class otherwise the code will be loaded too late.
+>
+> To do this, replace `Illuminate\Foundation\Application` with `DragonCode\LaravelRouteNames\Application` in the
 `bootstrap/app.php` file.
 
 You can now list the routes, for example by calling the `php artisan route:list` command or by using
