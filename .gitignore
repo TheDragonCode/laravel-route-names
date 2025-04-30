@@ -9,3 +9,4 @@ vendor/
 ide.json
 
 composer.lock
+/.build/

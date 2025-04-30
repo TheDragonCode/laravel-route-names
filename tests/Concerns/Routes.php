@@ -118,4 +118,14 @@ trait Routes
         $router->get('telescope/{view?}', [Controller::class, 'telescopeShow'])->name('telescope');
         $router->get('telescope/telescope-api/views/{telescopeEntryId}', [Controller::class, 'telescopeViewsShow']);
     }
+
+    protected function extendedRoutes(Router $router): void
+    {
+        $router->get('api/v1/extended/', [Controller::class, 'extendedFoo']);
+        $router->post('api/v1/extended/', [Controller::class, 'extendedBar']);
+        $router->put('api/v1/extended/', [Controller::class, 'extendedBaz']);
+        $router->delete('api/v1/extended/', [Controller::class, 'extendedBaq']);
+        $router->patch('api/v1/extended/', [Controller::class, 'extendedBaw']);
+        $router->options('api/v1/extended/', [Controller::class, 'extendedBae']);
+    }
 }

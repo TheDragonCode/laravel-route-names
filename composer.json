@@ -69,5 +69,9 @@
                 "DragonCode\\LaravelRouteNames\\ServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit --coverage-text",
+        "test-coverage": "@test --coverage-html=.build/phpunit/"
     }
 }

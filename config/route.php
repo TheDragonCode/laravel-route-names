@@ -32,5 +32,16 @@ return [
             'sanctum*',
             'telescope*',
         ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Extender
+        |--------------------------------------------------------------------------
+        |
+        | This option specifies the callback that will be used to extend route names.
+        |
+        */
+
+        'extender' => null,
     ],
 ];
