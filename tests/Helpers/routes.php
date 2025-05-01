@@ -15,15 +15,20 @@
 
 declare(strict_types=1);
 
+use Illuminate\Routing\Route as RouteCore;
 use Illuminate\Support\Facades\Route;
 use Workbench\App\Http\Controllers\SomeController;
 
-Route::controller(SomeController::class)
-    ->group(static function () {
-        Route::get('collision/get/{id}', 'collisionGet');
-        Route::post('collision/post/{id}', 'collisionPost');
-        Route::put('collision/put/{id}', 'collisionPut');
-        Route::delete('collision/delete/{id}', 'collisionDelete');
-        Route::patch('collision/patch/{id}', 'collisionPatch');
-        Route::options('collision/options/{id}', 'collisionOptions');
-    });
+function routeAction(string $action, string $controller = SomeController::class): ?RouteCore
+{
+    return Route::getRoutes()->getByAction($controller . '@' . $action);
+}
+
+function routeName(string $action, string $controller = SomeController::class): string
+{
+    if ($route = routeAction($action, $controller)) {
+        return $route->getName();
+    }
+
+    throw new RuntimeException(sprintf('Unknown route action: %s@%s.', $controller, $action));
+}
