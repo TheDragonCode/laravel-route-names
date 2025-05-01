@@ -29,10 +29,11 @@ class Application extends BaseApplication
     {
         $this->register(new EventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
-        $this->register(new RoutingServiceProvider($this));
 
         if (class_exists(ContextServiceProvider::class)) {
             $this->register(new ContextServiceProvider($this));
         }
+
+        $this->register(new RoutingServiceProvider($this));
     }
 }

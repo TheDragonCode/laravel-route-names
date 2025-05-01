@@ -15,17 +15,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Routes;
+use Illuminate\Foundation\Console\RouteCacheCommand;
+use Illuminate\Foundation\Console\RouteClearCommand;
 
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use function Pest\Laravel\artisan;
 
-it('default', function (bool $withCache) {
-    cacheRoutes($withCache);
-
-    route('my_pages');
-})
-    ->with('cache routes')
-    ->throws(
-        exception       : RouteNotFoundException::class,
-        exceptionMessage: 'Route [my_pages] not defined.'
-    );
+function cacheRoutes(bool $use): void
+{
+    $use
+        ? artisan(RouteCacheCommand::class)->run()
+        : artisan(RouteClearCommand::class)->run();
+}

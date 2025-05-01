@@ -15,17 +15,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Routes;
-
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
-
-it('default', function (bool $withCache) {
-    cacheRoutes($withCache);
-
-    route('my_pages');
-})
-    ->with('cache routes')
-    ->throws(
-        exception       : RouteNotFoundException::class,
-        exceptionMessage: 'Route [my_pages] not defined.'
-    );
+dataset('cache routes', [
+    'cache enabled'  => [true],
+    'cache disabled' => [false],
+]);

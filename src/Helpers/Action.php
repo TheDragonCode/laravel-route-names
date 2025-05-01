@@ -20,6 +20,8 @@ namespace DragonCode\LaravelRouteNames\Helpers;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Request;
 
+use function in_array;
+
 class Action
 {
     protected array $aliases = [
@@ -41,31 +43,25 @@ class Action
         'restore' => [Request::METHOD_POST],
     ];
 
-    protected array $show = [Request::METHOD_GET, Request::METHOD_HEAD];
+    protected array $show = [
+        Request::METHOD_GET,
+        Request::METHOD_HEAD,
+    ];
 
     protected string $default = 'index';
 
     public function get(array $methods, string $uri): string
     {
-        if ($value = $this->show($methods, $uri)) {
-            return $value;
-        }
-
-        if ($value = $this->collision($methods, $uri)) {
-            return $value;
-        }
-
-        if ($value = $this->alias($methods)) {
-            return $value;
-        }
-
-        return $this->default;
+        return $this->show($methods, $uri)
+            ?? $this->collision($methods, $uri)
+            ?? $this->alias($methods)
+            ?? $this->default;
     }
 
     protected function collision(array $methods, string $uri): ?string
     {
-        foreach ($this->collision as $alias => $http_methods) {
-            if ($this->hasMethods($methods, $http_methods) && $this->hasAlias($uri, $alias)) {
+        foreach ($this->collision as $alias => $httpMethods) {
+            if ($this->hasMethods($methods, $httpMethods) && $this->hasAlias($uri, $alias)) {
                 return $alias;
             }
         }
@@ -75,8 +71,8 @@ class Action
 
     protected function alias(array $methods): ?string
     {
-        foreach ($this->aliases as $method => $http_methods) {
-            if ($this->hasMethods($methods, $http_methods)) {
+        foreach ($this->aliases as $method => $httpMethods) {
+            if ($this->hasMethods($methods, $httpMethods)) {
                 return $method;
             }
         }

@@ -17,12 +17,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Routes;
 
-it('pretty routes', function () {
+it('default', function (bool $withCache) {
+    cacheRoutes($withCache);
+
     expect(routeName('prettyRoutesList'))->toBe('pretty-routes.list');
     expect(routeName('prettyRoutesClear'))->toBe('pretty-routes.clear');
-});
 
-it('telescope', function () {
     expect(routeName('telescopeShow'))->toBe('telescope');
     expect(routeName('telescopeViewsShow'))->toBe('telescope.telescope-api.views.show');
-});
+})->with('cache routes');

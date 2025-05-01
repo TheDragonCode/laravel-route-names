@@ -38,6 +38,7 @@
     "require-dev": {
         "orchestra/testbench": "^9.0 || ^10.0",
         "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-laravel": "^3.2",
         "pestphp/pest-plugin-type-coverage": "^3.5"
     },
     "minimum-stability": "stable",
@@ -80,7 +81,7 @@
         "build": "@php vendor/bin/testbench workbench:build --ansi",
         "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "test": "@php vendor/bin/pest --parallel",
-        "test-coverage": "@php vendor/bin/pest --type-coverage"
+        "test": "@php vendor/bin/pest",
+        "test-coverage": "@test --type-coverage --compact"
     }
 }

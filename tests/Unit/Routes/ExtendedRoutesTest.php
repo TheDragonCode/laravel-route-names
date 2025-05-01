@@ -22,16 +22,20 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Tests\Fixtures\Extenders\RouteNameExtender;
 
-it('default', function () {
+it('default', function (bool $withCache) {
+    cacheRoutes($withCache);
+
     expect(routeName('extendedFoo'))->toBe('api.v1.extended.index');
     expect(routeName('extendedBar'))->toBe('api.v1.extended.store');
     expect(routeName('extendedBaz'))->toBe('api.v1.extended.update');
     expect(routeName('extendedBaq'))->toBe('api.v1.extended.destroy');
     expect(routeName('extendedBaw'))->toBe('api.v1.extended.patch');
     expect(routeName('extendedBae'))->toBe('api.v1.extended.options');
-});
+})->with('cache routes');
 
-it('closure extender', function () {
+it('closure extender', function (bool $withCache) {
+    cacheRoutes($withCache);
+
     Config::set(
         'route.names.extender',
         static function (string $name, Route $route): string {
@@ -47,9 +51,11 @@ it('closure extender', function () {
     expect(routeName('extendedBaq'))->toBe('api.extended.destroy');
     expect(routeName('extendedBaw'))->toBe('api.extended.patch');
     expect(routeName('extendedBae'))->toBe('api.extended.options');
-});
+})->with('cache routes');
 
-it('extender class', function () {
+it('extender class', function (bool $withCache) {
+    cacheRoutes($withCache);
+
     Config::set('route.names.extender', RouteNameExtender::class);
 
     expect(routeName('extendedFoo'))->toBe('api.v2.extended.index');
@@ -58,4 +64,4 @@ it('extender class', function () {
     expect(routeName('extendedBaq'))->toBe('api.v2.extended.destroy');
     expect(routeName('extendedBaw'))->toBe('api.v2.extended.patch');
     expect(routeName('extendedBae'))->toBe('api.v2.extended.options');
-});
+})->with('cache routes');
