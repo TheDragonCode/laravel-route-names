@@ -15,18 +15,14 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\LaravelRouteNames\Facades;
+namespace Tests\Unit\Routes;
 
-use DragonCode\LaravelRouteNames\Helpers\Name as Helper;
-use Illuminate\Support\Facades\Facade;
+it('pretty routes', function () {
+    expect(routeName('prettyRoutesList'))->toBe('pretty-routes.list');
+    expect(routeName('prettyRoutesClear'))->toBe('pretty-routes.clear');
+});
 
-/**
- * @method static string get(array $methods, string $uri)
- */
-class Name extends Facade
-{
-    protected static function getFacadeAccessor(): string
-    {
-        return Helper::class;
-    }
-}
+it('telescope', function () {
+    expect(routeName('telescopeShow'))->toBe('telescope');
+    expect(routeName('telescopeViewsShow'))->toBe('telescope.telescope-api.views.show');
+});

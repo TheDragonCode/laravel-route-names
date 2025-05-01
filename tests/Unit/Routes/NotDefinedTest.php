@@ -15,18 +15,10 @@
 
 declare(strict_types=1);
 
-namespace DragonCode\LaravelRouteNames\Facades;
+namespace Tests\Unit\Routes;
 
-use DragonCode\LaravelRouteNames\Helpers\Name as Helper;
-use Illuminate\Support\Facades\Facade;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
-/**
- * @method static string get(array $methods, string $uri)
- */
-class Name extends Facade
-{
-    protected static function getFacadeAccessor(): string
-    {
-        return Helper::class;
-    }
-}
+it('default', function () {
+    route('my_pages');
+})->throws(RouteNotFoundException::class, 'Route [my_pages] not defined.');
