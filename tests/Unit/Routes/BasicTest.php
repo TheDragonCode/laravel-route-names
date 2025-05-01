@@ -17,47 +17,41 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Routes;
 
-it('default', function () {
-    expect(routeName('foo'))->toBe('index');
-    expect(routeName('bar'))->toBe('store');
-    expect(routeName('baz'))->toBe('update');
-    expect(routeName('baq'))->toBe('destroy');
-    expect(routeName('baw'))->toBe('patch');
-    expect(routeName('bae'))->toBe('options');
-});
+it('default', function (bool $withCache) {
+    cacheRoutes($withCache);
 
-it('simple', function () {
+    expect(routeName('foo'))->toBe('main.index');
+    expect(routeName('bar'))->toBe('main.store');
+    expect(routeName('baz'))->toBe('main.update');
+    expect(routeName('baq'))->toBe('main.destroy');
+    expect(routeName('baw'))->toBe('main.patch');
+    expect(routeName('bae'))->toBe('main.options');
+
     expect(routeName('simpleFoo'))->toBe('simple.index');
     expect(routeName('simpleBar'))->toBe('simple.store');
     expect(routeName('simpleBaz'))->toBe('simple.update');
     expect(routeName('simpleBaq'))->toBe('simple.destroy');
     expect(routeName('simpleBaw'))->toBe('simple.patch');
     expect(routeName('simpleBae'))->toBe('simple.options');
-});
 
-it('edit', function () {
     expect(routeName('simpleEditFoo'))->toBe('simple.edit.show');
     expect(routeName('simpleEditBar'))->toBe('simple.edit.store');
     expect(routeName('simpleEditBaz'))->toBe('simple.edit.update');
     expect(routeName('simpleEditBaq'))->toBe('simple.edit.destroy');
     expect(routeName('simpleEditBaw'))->toBe('simple.edit.patch');
     expect(routeName('simpleEditBae'))->toBe('simple.edit.options');
-});
 
-it('update', function () {
     expect(routeName('simpleUpdateFoo'))->toBe('simple.update.show');
     expect(routeName('simpleUpdateBar'))->toBe('simple.update.store');
-    expect(routeName('simpleUpdateBaz'))->toBe('simple.update');
+    expect(routeName('simpleUpdateBaz'))->toBe('simple.update.update');
     expect(routeName('simpleUpdateBaq'))->toBe('simple.update.destroy');
     expect(routeName('simpleUpdateBaw'))->toBe('simple.update.patch');
     expect(routeName('simpleUpdateBae'))->toBe('simple.update.options');
-});
 
-it('destroy', function () {
     expect(routeName('simpleDestroyFoo'))->toBe('simple.destroy.show');
     expect(routeName('simpleDestroyBar'))->toBe('simple.destroy.store');
     expect(routeName('simpleDestroyBaz'))->toBe('simple.destroy.update');
-    expect(routeName('simpleDestroyBaq'))->toBe('simple.destroy');
+    expect(routeName('simpleDestroyBaq'))->toBe('simple.destroy.destroy');
     expect(routeName('simpleDestroyBaw'))->toBe('simple.destroy.patch');
     expect(routeName('simpleDestroyBae'))->toBe('simple.destroy.options');
-});
+})->with('cache routes');

@@ -17,11 +17,13 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Routes;
 
-it('default', function () {
+it('default', function (bool $withCache) {
+    cacheRoutes($withCache);
+
     expect(routeName('caseFoo'))->toBe('mixed-case.case.index');
     expect(routeName('caseBar'))->toBe('mixed-case.case.store');
     expect(routeName('caseBaz'))->toBe('mixed-case.case.update');
     expect(routeName('caseBaq'))->toBe('mixed-case.case.destroy');
     expect(routeName('caseBaw'))->toBe('mixed-case.case.patch');
     expect(routeName('caseBae'))->toBe('mixed-case.case.options');
-});
+})->with('cache routes');

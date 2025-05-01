@@ -17,20 +17,20 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Routes;
 
-it('default', function () {
-    expect(routeName('parameterFoo'))->toBe('show');
-    expect(routeName('parameterBar'))->toBe('store');
-    expect(routeName('parameterBaz'))->toBe('update');
-    expect(routeName('parameterBaq'))->toBe('destroy');
-    expect(routeName('parameterBaw'))->toBe('patch');
-    expect(routeName('parameterBae'))->toBe('options');
-});
+it('default', function (bool $withCache) {
+    cacheRoutes($withCache);
 
-it('parameters', function () {
+    expect(routeName('parameterFoo'))->toBe('id.show');
+    expect(routeName('parameterBar'))->toBe('id.store');
+    expect(routeName('parameterBaz'))->toBe('id.update');
+    expect(routeName('parameterBaq'))->toBe('id.destroy');
+    expect(routeName('parameterBaw'))->toBe('id.patch');
+    expect(routeName('parameterBae'))->toBe('id.options');
+
     expect(routeName('parameterSimpleFoo'))->toBe('parameters.simple.show');
     expect(routeName('parameterSimpleBar'))->toBe('parameters.simple.store');
     expect(routeName('parameterSimpleBaz'))->toBe('parameters.simple.update');
     expect(routeName('parameterSimpleBaq'))->toBe('parameters.simple.destroy');
     expect(routeName('parameterSimpleBaw'))->toBe('parameters.simple.patch');
     expect(routeName('parameterSimpleBae'))->toBe('parameters.simple.options');
-});
+})->with('cache routes');

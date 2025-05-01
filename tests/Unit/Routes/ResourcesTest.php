@@ -20,7 +20,9 @@ namespace Tests\Unit\Routes;
 use Workbench\App\Http\Controllers\ApiController;
 use Workbench\App\Http\Controllers\WebController;
 
-it('web resources', function () {
+it('web resources', function (bool $withCache) {
+    cacheRoutes($withCache);
+
     expect(routeName('index', WebController::class))->toBe('api.resources.photos.index');
     expect(routeName('create', WebController::class))->toBe('api.resources.photos.create');
     expect(routeName('store', WebController::class))->toBe('api.resources.photos.store');
@@ -28,12 +30,10 @@ it('web resources', function () {
     expect(routeName('edit', WebController::class))->toBe('api.resources.photos.edit');
     expect(routeName('update', WebController::class))->toBe('api.resources.photos.update');
     expect(routeName('destroy', WebController::class))->toBe('api.resources.photos.destroy');
-});
 
-it('api resources', function () {
     expect(routeName('index', ApiController::class))->toBe('api.resources.comments.index');
     expect(routeName('store', ApiController::class))->toBe('api.resources.comments.store');
     expect(routeName('show', ApiController::class))->toBe('api.resources.comments.show');
     expect(routeName('update', ApiController::class))->toBe('api.resources.comments.update');
     expect(routeName('destroy', ApiController::class))->toBe('api.resources.comments.destroy');
-});
+})->with('cache routes');

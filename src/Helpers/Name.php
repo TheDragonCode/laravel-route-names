@@ -23,13 +23,19 @@ use Illuminate\Support\Str;
 
 class Name
 {
+    protected string $default = 'main';
+
     public function get(array $methods, string $uri): string
     {
         $resolved = $this->resolve($uri);
         $suffix   = $this->getMethodSuffix($methods, $uri);
 
         return $resolved
-            ->when($this->doesntSame($resolved, $suffix), static fn (Collection $items) => $items->push($suffix))
+            ->when(
+                fn (Collection $items) => $items->isEmpty(),
+                fn (Collection $items) => $items->push($this->fallback($uri))
+            )
+            ->when($this->needSuffix($resolved, $suffix), static fn ($items) => $items->push($suffix))
             ->implode('.');
     }
 
@@ -49,7 +55,7 @@ class Name
 
     protected function has(string $value): bool
     {
-        return ! empty($value) && ! Str::contains($value, '{');
+        return ! empty($value) && Str::doesntContain($value, '{');
     }
 
     protected function map(string $value): string
@@ -57,8 +63,17 @@ class Name
         return (string) Str::of($value)->lower()->kebab();
     }
 
-    protected function doesntSame(Collection $haystack, string $needle): bool
+    protected function needSuffix(Collection $haystack, string $needle): bool
     {
-        return $needle !== $haystack->last();
+        return $haystack->count() <= 2 || $needle !== $haystack->last();
+    }
+
+    protected function fallback(string $uri): string
+    {
+        if (Str::startsWith($uri, '{') && Str::endsWith($uri, '}') && Str::doesntContain($uri, '/')) {
+            return Str::of($uri)->after('{')->before('}')->value();
+        }
+
+        return $this->default;
     }
 }

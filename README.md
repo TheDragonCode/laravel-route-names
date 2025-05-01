@@ -55,6 +55,13 @@ app('router')->delete('/', [IndexController::class, 'delete']);
 app('router')->patch('/', [IndexController::class, 'patch']);
 app('router')->options('/', [IndexController::class, 'options']);
 
+app('router')->get('{some}', [IndexController::class, 'index']);
+app('router')->post('{some}', [IndexController::class, 'store']);
+app('router')->put('{some}', [IndexController::class, 'update']);
+app('router')->delete('{some}', [IndexController::class, 'delete']);
+app('router')->patch('{some}', [IndexController::class, 'patch']);
+app('router')->options('{some}', [IndexController::class, 'options']);
+
 app('router')->get('pages', [PagesController::class, 'index']);
 app('router')->post('pages', [PagesController::class, 'store']);
 app('router')->put('pages/{page}', [PagesController::class, 'update']);
@@ -65,12 +72,18 @@ app('router')->options('pages/{page}', [PagesController::class, 'options']);
 
 | Method    | Url          | Name            | Helper                   |
 |-----------|--------------|-----------------|--------------------------|
-| GET, HEAD | `/`          | `index`         | `route('index')`         |
-| POST      | `/`          | `store`         | `route('store')`         |
-| PUT       | `/`          | `update`        | `route('update')`        |
-| DELETE    | `/`          | `destroy`       | `route('destroy')`       |
-| PATCH     | `/`          | `patch`         | `route('patch')`         |
-| OPTIONS   | `/`          | `options`       | `route('options')`       |
+| GET, HEAD | `/`          | `main.index`    | `route('main.index')`    |
+| POST      | `/`          | `main.store`    | `route('main.store')`    |
+| PUT       | `/`          | `main.update`   | `route('main.update')`   |
+| DELETE    | `/`          | `main.destroy`  | `route('main.destroy')`  |
+| PATCH     | `/`          | `main.patch`    | `route('main.patch')`    |
+| OPTIONS   | `/`          | `main.options`  | `route('main.options')`  |
+| GET, HEAD | `{some}`     | `some.index`    | `route('some.index')`    |
+| POST      | `{some}`     | `some.store`    | `route('some.store')`    |
+| PUT       | `{some}`     | `some.update`   | `route('some.update')`   |
+| DELETE    | `{some}`     | `some.destroy`  | `route('some.destroy')`  |
+| PATCH     | `{some}`     | `some.patch`    | `route('some.patch')`    |
+| OPTIONS   | `{some}`     | `some.options`  | `route('some.options')`  |
 | GET, HEAD | `/pages`     | `pages.index`   | `route('pages.index')`   |
 | POST      | `/pages`     | `pages.store`   | `route('pages.store')`   |
 | PUT       | `/pages/123` | `pages.update`  | `route('pages.update')`  |

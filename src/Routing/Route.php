@@ -21,6 +21,9 @@ use DragonCode\LaravelRouteNames\Facades\Name;
 use Illuminate\Routing\Route as BaseRoute;
 use Illuminate\Support\Str;
 
+use function app;
+use function config;
+
 class Route extends BaseRoute
 {
     public function getName(): ?string
