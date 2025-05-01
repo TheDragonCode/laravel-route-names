@@ -17,7 +17,8 @@ declare(strict_types=1);
 
 namespace DragonCode\LaravelRouteNames\Routing;
 
-use DragonCode\LaravelRouteNames\Facades\Name;
+use Closure;
+use DragonCode\LaravelRouteNames\Helpers\Name;
 use Illuminate\Routing\Route as BaseRoute;
 use Illuminate\Support\Str;
 
@@ -26,6 +27,15 @@ use function config;
 
 class Route extends BaseRoute
 {
+    public function __construct(
+        array|string $methods,
+        string $uri,
+        array|Closure $action,
+        protected Name $naming
+    ) {
+        parent::__construct($methods, $uri, $action);
+    }
+
     public function getName(): ?string
     {
         if ($this->isProtectedRouteName()) {
@@ -33,7 +43,7 @@ class Route extends BaseRoute
         }
 
         return app()->call($this->getRouteNamesExtender(), [
-            'name'  => Name::get($this->methods(), $this->uri()),
+            'name'  => $this->naming->get($this->methods(), $this->uri()),
             'route' => $this,
         ]);
     }

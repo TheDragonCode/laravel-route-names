@@ -17,13 +17,16 @@ declare(strict_types=1);
 
 namespace DragonCode\LaravelRouteNames\Helpers;
 
-use DragonCode\LaravelRouteNames\Facades\Action;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class Name
 {
     protected string $default = 'main';
+
+    public function __construct(
+        protected Action $action
+    ) {}
 
     public function get(array $methods, string $uri): string
     {
@@ -50,7 +53,7 @@ class Name
 
     protected function getMethodSuffix(array $methods, string $uri): string
     {
-        return Action::get($methods, $uri);
+        return $this->action->get($methods, $uri);
     }
 
     protected function has(string $value): bool
