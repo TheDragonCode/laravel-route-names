@@ -17,7 +17,10 @@ declare(strict_types=1);
 
 namespace DragonCode\LaravelRouteNames\Routing;
 
+use DragonCode\LaravelRouteNames\Helpers\Name;
 use Illuminate\Routing\Router as BaseRouter;
+
+use function app;
 
 class Router extends BaseRouter
 {
@@ -26,7 +29,7 @@ class Router extends BaseRouter
         $uri, // @pest-ignore-type
         $action // @pest-ignore-type
     ): Route {
-        return (new Route($methods, $uri, $action))
+        return (new Route($methods, $uri, $action, app(Name::class)))
             ->setRouter($this)
             ->setContainer($this->container);
     }
