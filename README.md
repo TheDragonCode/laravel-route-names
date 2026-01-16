@@ -1,8 +1,8 @@
 # Automatic Route Names for Laravel
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Laravel%20Route%20Names.png?theme=dark&pattern=topography&style=style_2&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg&packageManager=composer+require&packageName=dragon-code%2Flaravel-route-names&description=Automatic+generation+of+route+names&md=1&showWatermark=1">
-    <img src="https://banners.beyondco.de/Laravel%20Route%20Names.png?theme=light&pattern=topography&style=style_2&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg&packageManager=composer+require&packageName=dragon-code%2Flaravel-route-names&description=Automatic+generation+of+route+names&md=1&showWatermark=1" alt="Laravel Route Names">
+    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Laravel%20Route%20Names.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=dark&packageManager=composer+require&packageName=dragon-code%2Flaravel-route-names&description=Automatic+generation+of+route+names&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg">
+    <img src="https://banners.beyondco.de/Laravel%20Route%20Names.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=light&packageManager=composer+require&packageName=dragon-code%2Flaravel-route-names&description=Automatic+generation+of+route+names&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" alt="Laravel Route Names">
 </picture>
 
 [![Stable Version][badge_stable]][link_packagist]
